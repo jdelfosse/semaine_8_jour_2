@@ -2,21 +2,30 @@
 <%= render 'layouts/task_form'  %>
 <div class="container">
   <ul>
+
+
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
-  <div class="card">
-    <ul>
-      <% category.tasks.each do |task|  %>
+<button class="tablinks" onclick="openTitle(event , '<%= category.title  %>')"><%= category.title  %></button>
+  <% end %>
+
+  <% @categories.each do  |category|%>
+    <div id="<%= category.title  %>" class="tabcontent" >
+    <% category.tasks.each do |task|  %>
       <li>
-        <%= task.title  %>
+
+
+      <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
         <% end %>
       </li>
+
+
       <% end %>
-    </ul>
-  </div>
-  <% end %>
+    </div>
+    <% end %>
+
+
   </ul>
 </div>
 
@@ -31,3 +40,10 @@
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
