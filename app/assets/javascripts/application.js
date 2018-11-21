@@ -15,6 +15,24 @@
 //= require turbolinks
 //= require_tree .
 
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+} 
+
 function openTitle(evt, Title) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -35,3 +53,4 @@ function openTitle(evt, Title) {
     document.getElementById(Title).style.display = "block";
     evt.currentTarget.className += " active";
 } 
+
